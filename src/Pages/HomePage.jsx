@@ -73,29 +73,48 @@ const HomePage = () => {
 
       {/* Job Assurance Section */}
       <div className='bg-black py-20 px-6 sm:px-12'>
-        <h2 className='text-4xl sm:text-5xl font-bold text-white mb-6 max-w-lg'>Our Job Assurance Package</h2>
-        <hr className='border-white w-1/3' />
-        <div className='flex flex-col md:flex-row items-center justify-center gap-6 mt-8'>
-          <div className='h-60 sm:h-80 w-3/4 md:w-72 bg-orange-500 rounded-4xl'>
-          <p className='text-white px-12   font-bold font-serif text-2xl py-4'>Job Ready</p>
-          <p className='w-72 px-12 font-serif text-white font-semibold'>Unlimited Interview <br/>Scheduling Until You<br/> get a job</p>
-          <p className='w-72 px-12 py-5 font-serif text-white font-semibold'>ATS Approved <br/>Scheduling Until You<br/> get a job</p>
-          <a href="" className='h-10 w-40 px-12 mt-2  relative top-4 border-2 border-white rounded-2xl left-4 p-2 text-white text-center'>ENROLL NOW</a>
-          </div>
-          <div className='h-72 sm:h-90 relative right-20   w-3/4 md:w-72 bg-purple-500 rounded-4xl'>
-          <p className='text-white px-8  font-bold font-serif text-2xl py-4'>Carrier Booster</p>
-          <p className='w-72 px-12 font-serif text-white font-semibold'>Unlimited Interview <br/>Scheduling Until You<br/> get a job</p>
-          <p className='w-72 px-12 py-5 font-serif text-white font-semibold'>ATS Approved <br/>Scheduling Until You<br/> get a job</p>
-          <a href="" className='h-10 w-40 px-12 mt-8  border-2 border-white rounded-2xl ml-6  p-2  relative   top-8 text-white text-center'>ENROLL NOW</a></div>
-          <div className='h-72 sm:h-[60vh] absolute right-72   w-3/4 md:w-72 bg-white rounded-4xl'>
-          <p className=' px-8  font-bold font-serif text-2xl py-4 text-black'>Unlimited Carrier Growth</p>
-          <p className='w-72 px-12 font-serif text-black font-semibold '>Unlimited Interview <br/>Scheduling Until You<br/> get a job</p>
-          <p className='w-72 px-12 py-5 font-serif text-black font-semibold'>ATS Approved <br/>Scheduling Until You<br/> get a job</p>
-          <a href="" className='h-10 w-40 px-12 mt-8  border-2 border-black rounded-2xl ml-6  p-2  relative   top-12 text-black text-center'>ENROLL NOW</a>
-          </div>
+      <h2 className='text-4xl sm:text-5xl font-bold text-white mb-6 max-w-lg text-center mx-auto'>
+        Our Job Assurance Package
+      </h2>
+      <hr className='border-white w-1/3 mx-auto' />
+      <div className='flex flex-wrap justify-center gap-6 mt-8'>
+        {/* Card 1 */}
+        <div className='h-auto sm:h-80 w-full sm:w-80 bg-orange-500 rounded-3xl p-6 flex flex-col justify-between text-center'>
+          <p className='text-white font-bold font-serif text-2xl'>Job Ready</p>
+          <p className='text-white font-serif font-semibold leading-relaxed'>
+            Unlimited Interview Scheduling Until You Get a Job
+          </p>
+          <p className='text-white font-serif font-semibold leading-relaxed'>
+            ATS Approved Scheduling Until You Get a Job
+          </p>
+          <a href='#' className='border-2 border-white rounded-2xl py-2 px-6 text-white mx-auto mt-4'>ENROLL NOW</a>
         </div>
-        
+
+        {/* Card 2 */}
+        <div className='h-auto sm:h-80 w-full sm:w-80 bg-purple-500 rounded-3xl p-6 flex flex-col justify-between text-center'>
+          <p className='text-white font-bold font-serif text-2xl'>Career Booster</p>
+          <p className='text-white font-serif font-semibold leading-relaxed'>
+            Unlimited Interview Scheduling Until You Get a Job
+          </p>
+          <p className='text-white font-serif font-semibold leading-relaxed'>
+            ATS Approved Scheduling Until You Get a Job
+          </p>
+          <a href='#' className='border-2 border-white rounded-2xl py-2 px-6 text-white mx-auto mt-4'>ENROLL NOW</a>
+        </div>
+
+        {/* Card 3 */}
+        <div className='h-auto sm:h-80 w-full sm:w-80 bg-white rounded-3xl p-6 flex flex-col justify-between text-center'>
+          <p className='text-black font-bold font-serif text-2xl'>Unlimited Career Growth</p>
+          <p className='text-black font-serif font-semibold leading-relaxed'>
+            Unlimited Interview Scheduling Until You Get a Job
+          </p>
+          <p className='text-black font-serif font-semibold leading-relaxed'>
+            ATS Approved Scheduling Until You Get a Job
+          </p>
+          <a href='#' className='border-2 border-black rounded-2xl py-2 px-6 text-black mx-auto mt-4'>ENROLL NOW</a>
+        </div>
       </div>
+    </div>
       <Footer/>
     </>
   );
