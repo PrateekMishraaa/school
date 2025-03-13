@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
-const Footer = () => {
+const Footer = (props) => {
   return (
+    <>
     <footer className="bg-black border-2 rounded-4xl text-white py-10 px-5 md:px-10 lg:px-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
@@ -51,6 +52,7 @@ const Footer = () => {
         &copy; {new Date().getFullYear()} Company Name. All rights reserved.
       </div>
     </footer>
+    </>
   );
 };
 
