@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Image from "../assets/images.png";
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import Google from "../assets/google.svg";
 import Adobe from "../assets/adobe.png";
 import Microsoft from "../assets/microsoft.png";
@@ -45,25 +45,91 @@ const HomePage = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-8 sm:py-12 md:py-20 px-4 sm:px-6 lg:px-8 w-full">
-        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-6 lg:gap-12">
-          <div className="w-full md:w-1/2 text-center md:text-left animate-element">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4">
-              GET <span className="text-orange-500">HIRED</span> WITH <span className="text-orange-500">CONFIDENCE</span>
-            </h1>
-            <p className="py-2 sm:py-4 text-base sm:text-lg lg:text-xl max-w-lg mx-auto md:mx-0">
-              With our 100% job assurance, we bridge the gap between talent and opportunity, ensuring seamless hiring for employers and career success for candidates.
-            </p>
-            <button className="mt-3 sm:mt-4 h-10 sm:h-12 w-32 sm:w-40 rounded-xl font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-all">
-              How we Work
+      <div className="flex flex-col md:flex-row min-h-screen">
+      {/* Left Section */}
+      <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          GET <span className="text-orange-500">HIRED</span><br />
+          WITH <span className="text-orange-500">CONFIDENCE</span>
+        </h1>
+        
+        <p className="text-lg mb-10 max-w-lg">
+          With our 100% job assurance, we bridge the gap between talent and opportunity, ensuring seamless hiring for employers and career success for candidates.
+        </p>
+        
+        <div className="mb-10 border-b border-gray-300"></div>
+        
+        <button className="bg-orange-500 text-white font-bold py-4 px-8 rounded-md hover:bg-orange-600 transition-colors w-48 text-center">
+          HOW WE WORK
+        </button>
+      </div>
+      
+      {/* Right Section */}
+      <div className="w-full md:w-1/2 bg-gray-50 p-8 md:p-16 flex flex-col justify-center">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Name"
+              className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-orange-500 bg-transparent"
+              required
+            />
+          </div>
+          
+          <div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-orange-500 bg-transparent"
+              required
+            />
+          </div>
+          
+          <div>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone no."
+              className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-orange-500 bg-transparent"
+              required
+            />
+          </div>
+          
+          <div className="relative">
+            <select
+              name="profession"
+              value={formData.profession}
+              onChange={handleChange}
+              className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-orange-500 bg-transparent appearance-none"
+              required
+            >
+              <option value="" disabled>Profession ▼</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="manager">Manager</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div className="pt-8">
+            <button
+              type="submit"
+              className="w-full bg-orange-500 text-white font-bold py-4 px-8 rounded-md hover:bg-orange-600 transition-colors"
+            >
+              GET HIRED TODAY
             </button>
           </div>
- 
-          <div className="w-full md:w-1/2 flex justify-center animate-element">
-            <img src={Image} alt="Illustration" className="h-32 sm:h-40 md:h-56 lg:h-64 xl:h-80 object-contain" />
-          </div>
-        </div>
-      </section>
+        </form>
+      </div>
+    </div>
 
       {/* Partners Section */}
       <section className="w-full py-6 sm:py-8 border-t border-b border-gray-200">
@@ -130,95 +196,205 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-black py-10 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 w-full">
-      <div className="container mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-center">
-          Our Job Assurance Packages
-        </h2>
-        <hr className="border-white w-1/3 mx-auto mb-8 sm:mb-12" />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 relative">
-          {/* Job Ready */}
-          <div className="bg-orange-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full min-h-80">
-            <h3 className="text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6 text-center">Job-Ready</h3>
-            <ul className="space-y-4 sm:space-y-6 text-white text-sm sm:text-base font-semibold text-center">
-              <li>✅ Unlimited interview scheduling until you secure a job</li>
-              <li>✅ ATF-approved CV to enhance your profile</li>
-              <li>✅ Professional portfolio to showcase your skills</li>
-            </ul>
-            <a href="#" className="block w-full border-2 border-white rounded-2xl py-3 px-4 sm:px-6 text-white text-center mt-6 sm:mt-8 hover:bg-white hover:text-orange-500 transition-colors duration-300 text-sm sm:text-base">
-              ENROLL NOW
-            </a>
+      <section className="bg-black py-16 px-4">
+      <div className="max-w-6xl mx-auto relative">
+        <div className="mb-12">
+          <h2 className="text-5xl font-bold text-white leading-tight">
+            Our Job<br />
+            Assurance<br />
+            Packages
+          </h2>
+          <div className="hidden md:block absolute left-48 top-32">
+            <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 10 C40 10, 80 40, 110 70" stroke="#888888" strokeWidth="3" fill="none" strokeLinecap="round" />
+              <path d="M100 60 L110 70 L100 80" stroke="#888888" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
-
-          {/* Career Booster */}
-          <div className="bg-purple-500 rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full min-h-80">
-            <h3 className="text-white font-bold text-xl sm:text-2xl mb-4 sm:mb-6 text-center">Career Booster</h3>
-            <ul className="space-y-4 sm:space-y-6 text-white text-sm sm:text-base font-semibold text-center">
-              <li>✅ Unlimited interview scheduling until you secure a job</li>
-              <li>✅ Expert-led HR training for interview and workplace success</li>
-              <li>✅ ATF-approved CV to stand out in job applications</li>
-              <li>✅ 100% Job Guarantee for assured career placement</li>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Job-Ready Package */}
+          <div className="bg-orange-500 rounded-3xl p-8 flex flex-col h-full">
+            <h3 className="text-2xl font-bold text-white text-center mb-8">
+              Job-Ready
+            </h3>
+            
+            <ul className="space-y-6 flex-grow mb-8">
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-orange-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  Unlimited interview scheduling until you secure a job
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-orange-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  ATF-approved CV to enhance your profile
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-orange-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  Professional portfolio to showcase your skills
+                </span>
+              </li>
             </ul>
-            <a href="#" className="block w-full border-2 border-white rounded-2xl py-3 px-4 sm:px-6 text-white text-center mt-6 sm:mt-8 hover:bg-white hover:text-purple-500 transition-colors duration-300 text-sm sm:text-base">
+            
+            <button className="w-full py-3 border-2 border-white text-white font-bold rounded-2xl hover:bg-white hover:text-orange-500 transition-colors duration-300">
               ENROLL NOW
-            </a>
+            </button>
           </div>
-
-          {/* Ultimate Career Growth */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between h-full min-h-80">
-            <h3 className="text-black font-bold text-xl sm:text-2xl mb-4 sm:mb-6 text-center">Ultimate Career Growth</h3>
-            <ul className="space-y-4 sm:space-y-6 text-black text-sm sm:text-base font-semibold text-center">
-              <li>✅ Unlimited interview scheduling until you secure a job</li>
-              <li>✅ Expert-led HR training for career readiness</li>
-              <li>✅ 100% Job Guarantee for secure employment</li>
-              <li>✅ ATF-approved CV to maximize your chances</li>
-              <li>✅ Skill development within 2 months to boost expertise and confidence</li>
+          
+          {/* Career Booster Package */}
+          <div className="bg-purple-500 rounded-3xl p-8 flex flex-col h-full">
+            <h3 className="text-2xl font-bold text-white text-center mb-8">
+              Career Booster
+            </h3>
+            
+            <ul className="space-y-6 flex-grow mb-8">
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-purple-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  Unlimited interview scheduling until you secure a job
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-purple-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  Expert-led HR training for interview and workplace success
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-purple-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  ATF-approved CV to stand out in job applications
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-white text-purple-500 rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-white font-semibold">
+                  100% Job Guarantee for assured career placement
+                </span>
+              </li>
             </ul>
-            <a href="#" className="block w-full border-2 border-black rounded-2xl py-3 px-4 sm:px-6 text-black text-center mt-6 sm:mt-8 hover:bg-black hover:text-white transition-colors duration-300 text-sm sm:text-base">
+            
+            <button className="w-full py-3 border-2 border-white text-white font-bold rounded-2xl hover:bg-white hover:text-purple-500 transition-colors duration-300">
               ENROLL NOW
-            </a>
+            </button>
+          </div>
+          
+          {/* Ultimate Career Growth Package */}
+          <div className="bg-white rounded-3xl p-8 flex flex-col h-full">
+            <h3 className="text-2xl font-bold text-black text-center mb-8">
+              Ultimate Career Growth
+            </h3>
+            
+            <ul className="space-y-6 flex-grow mb-8">
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-black text-white rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-black font-semibold">
+                  Unlimited interview scheduling until you secure a job
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-black text-white rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-black font-semibold">
+                  Expert-led HR training for career readiness
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-black text-white rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-black font-semibold">
+                  100% Job Guarantee for secure employment
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-black text-white rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-black font-semibold">
+                  ATF-approved CV to maximize your chances
+                </span>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-6 h-6 bg-black text-white rounded flex items-center justify-center mr-3 mt-1">
+                  <span className="text-sm font-bold">✓</span>
+                </div>
+                <span className="text-black font-semibold">
+                  Skill development within 2 months to boost expertise and confidence
+                </span>
+              </li>
+            </ul>
+            
+            <button className="w-full py-3 border-2 border-black text-black font-bold rounded-2xl hover:bg-black hover:text-white transition-colors duration-300">
+              ENROLL NOW
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <div className="bg-orange-600 text-white p-10">
-      {/* ABOUT THE TANNERS SECTION */}
-      <h2 className="text-3xl font-bold text-center mb-6">ABOUT THE TANNERS</h2>
-      <div className="flex justify-center gap-10 mb-10">
-        {/* First Card Set */}
-        <div className="flex gap-3">
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-        </div>
-        {/* Second Card Set */}
-        <div className="flex gap-3">
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-          <div className="w-32 h-48 bg-white rounded-lg"></div>
-        </div>
-      </div>
-      {/* Description */}
-      <div className="flex justify-center gap-10 text-black text-sm">
-        <p className="w-80">
-          At HiredIn, we streamline the hiring process by connecting companies with top-tier, pre-trained candidates who are ready to excel from day one. Our expert-led training, conducted by industry-leading HR professionals, empowers young professionals with the skills, confidence, and knowledge to ace interviews and secure their dream jobs.
-        </p>
-        <p className="w-80">
-          At HiredIn, we streamline the hiring process by connecting companies with top-tier, pre-trained candidates who are ready to excel from day one. Our expert-led training, conducted by industry-leading HR professionals, empowers young professionals with the skills, confidence, and knowledge to ace interviews and secure their dream jobs.
-        </p>
-      </div>
-      {/* SKILL DEVELOPMENT PROGRAM SECTION */}
-      <h2 className="text-2xl font-bold text-center mt-16 mb-6">SKILL DEVELOPMENT PROGRAM</h2>
-      <div className="grid grid-cols-3 gap-5 justify-center max-w-2xl mx-auto">
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-        <div className="w-38 h-38 bg-white rounded-lg"></div>
-      </div>
+    <div class="bg-orange-500 text-white p-8">
+  {/* <!-- ABOUT THE TANNERS SECTION --> */}
+  <h2 class="text-3xl font-bold text-center mb-8">ABOUT THE TANNERS</h2>
+  
+  <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-8 mb-8">
+    {/* <!-- First Card Set --> */}
+    <div class="flex gap-1">
+      <div class="w-24 h-40 md:w-32 md:h-48 bg-white rounded-2xl"></div>
+      <div class="w-20 h-40 md:w-24 md:h-48 bg-white rounded-2xl"></div>
+      <div class="w-24 h-40 md:w-32 md:h-48 bg-white rounded-2xl"></div>
     </div>
+    
+    {/* <!-- Second Card Set --> */}
+    <div class="flex gap-1">
+      <div class="w-24 h-40 md:w-32 md:h-48 bg-white rounded-2xl"></div>
+      <div class="w-20 h-40 md:w-24 md:h-48 bg-white rounded-2xl"></div>
+      <div class="w-24 h-40 md:w-32 md:h-48 bg-white rounded-2xl"></div>
+    </div>
+  </div>
+  
+  {/* <!-- Description --> */}
+  <div class="flex flex-col md:flex-row justify-center gap-6 md:gap-10 text-center md:text-left mb-12">
+    <p class="w-full md:w-80 text-sm">
+      At HiredIn, we streamline the hiring process by connecting companies with top-tier, pre-trained candidates who are ready to excel from day one. Our expert-led training, conducted by industry-leading HR professionals, empowers young professionals with the skills, confidence, and knowledge to ace interviews and secure their dream jobs.
+    </p>
+    <p class="w-full md:w-80 text-sm">
+      At HiredIn, we streamline the hiring process by connecting companies with top-tier, pre-trained candidates who are ready to excel from day one. Our expert-led training, conducted by industry-leading HR professionals, empowers young professionals with the skills, confidence, and knowledge to ace interviews and secure their dream jobs.
+    </p>
+  </div>
+  
+  {/* <!-- SKILL DEVELOPMENT PROGRAM SECTION --> */}
+  <h2 class="text-2xl font-bold text-center mt-12 mb-8">SKILL DEVELOPMENT PROGRAM</h2>
+  
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+    <div class="aspect-square bg-white"></div>
+    <div class="aspect-square bg-white"></div>
+    <div class="aspect-square bg-white"></div>
+    <div class="aspect-square bg-white"></div>
+    <div class="aspect-square bg-white"></div>
+    <div class="aspect-square bg-white"></div>
+  </div>
+</div>
 
       {/* Contact Form Section */}
       <section className="bg-black py-10 sm:py-16 px-4 sm:px-8 relative w-full">
