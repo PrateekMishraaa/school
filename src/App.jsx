@@ -4,6 +4,7 @@ import HomePage from './Pages/HomePage'
 import SignUp from './Pages/SignUp'
 import Login from './Pages/Login'
 import About from './Pages/About'
+import Individual from './Pages/Individual'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Route path='/signup' element={<SignUp/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path='/about' element={<About/>}/>
+      <Route path="/individual" element={<Individual/>}/>
     </Routes>
   </Router>
    </>

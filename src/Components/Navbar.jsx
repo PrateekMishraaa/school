@@ -22,11 +22,9 @@ const Navbar = () => {
           <option value="">Graphic Design</option>
         </select>
         
-        <a href="#" className="border px-4 py-2 rounded-md hover:bg-orange-500 hover:text-white hover:transition">Contact Us</a>
+        <a href="#" className="border px-4 py-2 rounded-xl hover:bg-orange-500 bg-orange-500 text-white hover:text-white hover:transition flex items-center"> <FaUser className="text-sm" />Contact Us</a>
         
-        <a href="#" className="border p-2 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
-          <FaUser className="text-xl" />
-        </a>
+       
       </div>
       
     
