@@ -13,7 +13,7 @@ const Navbar = () => {
 
       <div className="hidden md:flex items-center space-x-6 font-light font-serif ">
         <a href="/" className="hover:text-orange-500 transition">Home</a>
-        <a href="#" className="hover:text-orange-500 transition">Blog</a>
+        <a href="/blog" className="hover:text-orange-500 transition">Blog</a>
         <a href="/about" className="hover:text-orange-500 transition">About</a>
         
         <select className="border p-1 rounded-md outline-none hover:border-orange-500">
