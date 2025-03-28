@@ -21,7 +21,7 @@ const HomePage = () => {
             </p>
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center lg:justify-start">
-              <a href="/" className='h-10 w-40 text-white rounded-xl bg-orange-500 text-center py-2 font-semibold'>Company</a>
+              <a href="/Company-view" className='h-10 w-40 text-white rounded-xl bg-orange-500 text-center py-2 font-semibold'>Company</a>
               <a href="/individual" className='h-10 w-40 text-white rounded-xl bg-orange-500 text-center py-2 font-semibold'>Individual</a>
             </div>
           </div>
