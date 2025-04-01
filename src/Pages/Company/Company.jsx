@@ -83,34 +83,46 @@ const Company = () => {
 
       {/* How We Work Section */}
       <section className="py-16 px-4 relative">
-        <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-700">How We Work</h2>
-        <p className="text-center max-w-2xl text-gray-700 font-semibold text-lg md:text-xl mx-auto mt-4 px-4">
+        <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-900">How We Work</h2>
+        <p className="text-center max-w-2xl text-gray-600 font-medium text-lg md:text-xl mx-auto mt-4 px-4">
           Take Your Business Toward Automation with Our AI-Powered HRMS -<br className="hidden md:block" />
-          Smarter Hiring. Seamless Management
+          Smarter Hiring, Seamless Management!
         </p>
 
         <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 px-4">
-          <div className="w-full md:w-1/2 lg:w-1/3">
-            <img src={Boys} alt="boy" className="w-full h-auto max-w-sm mx-auto" />
+          {/* Large Image */}
+          <div className="w-full md:w-2/3 lg:w-1/2">
+            <img src={Boys} alt="boy" className="w-full h-auto rounded-2xl shadow-lg" />
           </div>
           
-          <div className="mt-8 md:mt-0 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="w-full rounded-2xl overflow-hidden">
-              <img src={Boys} alt="" className="w-full h-auto rounded-2xl" />
-            </div>
-            <div className="w-full rounded-2xl overflow-hidden">
-              <img src={Boys} alt="" className="w-full h-auto rounded-2xl" />
+          {/* Text Section */}
+          <div className="md:w-1/3 text-left">
+            <p className="font-bold text-2xl text-gray-900">Mr. Ankur</p>
+            <p className="text-sm text-gray-700 font-medium mt-2">
+              Upgrade Your Career with In-Demand Skills Career with In-Demand Skills Career
+              with In-Demand Skills Career with In-Demand Skills Career with In-Demand
+              Skills Career with In-Demand.
+            </p>
+            
+            {/* Small Video Thumbnails */}
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="w-full rounded-xl overflow-hidden relative">
+                <img src={Boys} alt="video thumbnail" className="w-full h-auto rounded-xl" />
+                <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 p-2 rounded-full">
+                  <span className="text-white text-sm">▶</span>
+                </div>
+              </div>
+              <div className="w-full rounded-xl overflow-hidden relative">
+                <img src={Boys} alt="video thumbnail" className="w-full h-auto rounded-xl" />
+                <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 p-2 rounded-full">
+                  <span className="text-white text-sm">▶</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div className="mt-8 text-center md:text-left md:max-w-md mx-auto md:mx-0 md:ml-auto px-4">
-          <p className="font-bold text-xl md:text-2xl">Mr Prateek Mishra</p>
-          <p className="text-sm text-gray-700 font-semibold mt-2">
-            Upgrade Your Career With In-Deemand Skills Career with in-demand Skills Career with in Demand Skills Career with in-demand Skills Career with in demand
-          </p>
-        </div>
       </section>
+
 
       {/* Why Choose Us Section */}
       <div className="w-full px-4 py-12 md:py-16">
